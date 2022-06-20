@@ -1,0 +1,12 @@
+.recv{
+  display: flex;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.recvText{
+  background-color: aqua;
+  margin-left: 5px;
+  border-radius: 0 10px 10px 10px;
+  max-width: 50%;
+}

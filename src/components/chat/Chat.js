@@ -1,5 +1,7 @@
 import "./Chat.css"
 import Card from "../card/Card";
+import SentText from "../textbox/SentText";
+import RecvText from "../textbox/RecvText";
 
 function Chat(){
   let cards = []
@@ -8,15 +10,15 @@ function Chat(){
     }
   return (
     <div className="row">
-      <div className="col-sm-3">
-        {cards}
+      <div className="col-sm-3">{cards}</div>
+      <div className="col-sm-6 user-chats">
+        <SentText />
+        <RecvText />
+        <SentText />
+        <RecvText />
+        <SentText />
       </div>
-      <div className="col-sm-6">
-
-      </div>
-      <div className="col-sm-3">
-
-      </div>
+      <div className="col-sm-3"></div>
     </div>
   );
 }
