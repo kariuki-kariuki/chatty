@@ -45,3 +45,10 @@
 .nav-3{
   padding: 15px;
 }
+
+nav{
+  background: #465898;
+  height: 100vh;
+  padding-top: 20px;
+  padding-left: 30px;
+}

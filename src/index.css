@@ -13,5 +13,6 @@
 .hero{
   height: 100%;
   border-radius: 30px;
-  padding-top: 30px;
+  /* padding-top: 30px; */
+  overflow: hidden;
 }

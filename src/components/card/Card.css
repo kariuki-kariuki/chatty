@@ -1,0 +1,22 @@
+img{
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+}
+
+.myCard{
+  /* background-image: url(./images.jpeg); */
+  color: white;
+  display: flex;
+  padding-top: 20px;
+}
+
+p{
+  margin: 5px;
+}
+
+h5{
+  margin: 5px;
+  color: yellow;
+}
+

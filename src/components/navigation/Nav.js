@@ -38,7 +38,7 @@ function Nav(){
 
       <div className="nav-3">
         <span
-          class="iconify"
+          className="iconify"
           data-icon="ic:round-add-business"
           style={{color: "yellow"}}
           data-width="48"
