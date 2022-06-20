@@ -1,0 +1,15 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root{
+  padding: 4% 3% 4% 3%;
+  height: 100vh;
+}
+
+.hero{
+  height: 100%;
+  border-radius: 30px;
+}
