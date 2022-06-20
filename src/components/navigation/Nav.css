@@ -1,20 +1,47 @@
-span{
+
+
+.span-1{
   display: inline-block;
   width: 15px;
   height: 15px;
   margin-left: 10px;
   border-radius: 50%;
-}
-
-.span-1{
   background-color: red;
 }
 
 .span-2{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  border-radius: 50%;
   background-color: yellow;
 }
 
 .span-3{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  border-radius: 50%;
   background-color: greenyellow;
 
+}
+
+
+.nav{
+  height: 10vh;
+  padding: 20px;
+}
+
+.nav-1{
+  padding: 15px;
+}
+
+.nav-2{
+  padding: 15px;
+}
+
+.nav-3{
+  padding: 15px;
 }
