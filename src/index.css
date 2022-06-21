@@ -5,14 +5,13 @@
 }
 
 #root{
-  padding: 4% 3% 4% 3%;
+  padding: 2% 2% 2% 2%;
   height: 100vh;
   overflow: hidden;
+  background: linear-gradient(45deg, blue, red);
 }
 
 .hero{
   height: 100%;
-  border-radius: 30px;
-  /* padding-top: 30px; */
   overflow: hidden;
 }

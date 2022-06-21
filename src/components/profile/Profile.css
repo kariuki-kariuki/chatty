@@ -1,0 +1,48 @@
+.image img{
+  width: 100%;
+  height: auto;
+  /* margin: 0 auto; */
+
+}
+
+.image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 20px;
+
+}
+
+.profile{
+  /* display: flex; */
+  background-color: antiquewhite;
+}
+
+header{
+  /* width: 50%; */
+  color: white;
+  text-align: center;
+  background-color: black;
+  width: 100%;
+  /* border-radius: 20px; */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 10px; */
+}
+
+.name{
+  text-align: center;
+}
+
+.transaction{
+  height: 50vh;
+  background-color: black;
+  color: white;
+  padding-top: 20px;
+  /* text-align: center; */
+  border-top: 3px solid blue;
+}
