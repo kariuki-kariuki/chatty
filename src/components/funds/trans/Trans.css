@@ -1,7 +1,10 @@
 .myTable{
   color: black;
-  background: linear-gradient(45deg, rgb(160, 151, 151), rgb(220, 205, 205));
+  /* background: linear-gradient(45deg, rgb(160, 151, 151), rgb(220, 205, 205)); */
+  background-color: white;
   border-radius: 0px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 
