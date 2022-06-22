@@ -1,3 +1,27 @@
 .myTable{
-  color: white;
+  color: black;
+  background: linear-gradient(45deg, rgb(160, 151, 151), rgb(220, 205, 205));
+  border-radius: 0px;
+}
+
+
+.sender{
+  color: blueviolet;
+  text-align: center;
+  font-weight: 900;
+  border-radius: 3px;
+}
+
+.amount{
+  color: brown;
+}
+
+.date{
+  color: blue;
+}
+
+.status-sent{
+  background-color: rgb(123, 123, 190);
+  color: rgb(36, 35, 35);
+  border-radius: 5px;
 }
