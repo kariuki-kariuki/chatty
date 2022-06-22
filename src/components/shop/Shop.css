@@ -1,0 +1,28 @@
+.navigation-bs{
+  background: #F2F2F2;
+  height: 100vh;
+}
+
+.cat{
+  font-size: 1rem;
+}
+
+.Categs{
+  background: white;
+  width: 90%;
+  margin: 0 auto;
+  padding: 3px;
+  margin-bottom: 5px;
+}
+
+.filter{
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 20%;
+  background-color: yellow;
+}
+
+.cont{
+  height: 90vh;
+  overflow: scroll;
+}
