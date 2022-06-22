@@ -3,7 +3,7 @@ import "./SentText.css"
 function SentText(){
   return (
     <div className="sent">
-      <img src={require("./download .jpeg")} />
+      <img src={require("./download .jpeg")} alt="nada"/>
       <div className="sentText">
         <h6>Sammy Doe</h6>
         <br></br>

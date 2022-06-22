@@ -7,7 +7,7 @@ function Profile(){
         PROFILE
       </header>
       <div className="image">
-        <img  src={require("./download.jpeg")}/>
+        <img  src={require("./download.jpeg")} alt="nada"/>
       </div>
       <div className="name">
         Sammy Doe

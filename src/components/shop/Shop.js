@@ -1,8 +1,11 @@
 import "./Shop.css"
 import Search from "./search/Search";
 import Item from "./item/Item";
+import { useState } from "react";
+import Cart from "./cart/Cart";
 
 function Shop(){
+  const [display, setDisplay] = useState("none")
   return (
     <div className="bg-white">
       <div className="row">
@@ -21,22 +24,26 @@ function Shop(){
           </div>
         </div>
         <div className="col-sm-10 p-2">
-          <div className="p-4"></div>
-          <div className="container-main row cont">
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
+          <div className="container-main dis">
+            <Cart display={display} setDisplay={setDisplay} />
+
+            <div className="container-main row cont">
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+              <Item setDisplay={setDisplay} />
+            </div>
           </div>
         </div>
       </div>

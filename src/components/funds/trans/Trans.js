@@ -5,7 +5,7 @@ function Trans(){
   return (
     <div className="d-flex justify-content-around p-1 align-items-center mt-2  myTable">
       <div className="">
-        <img className="trans-image" src={require("./download s.jpeg")} style={{ width: "20%", height: "auto"}}/>
+        <img className="trans-image" alt="nada" src={require("./download s.jpeg")} style={{ width: "20%", height: "auto"}}/>
       </div>
       <div className="sender">Jeff Bezzos</div>
       <div className="amount">$200</div>

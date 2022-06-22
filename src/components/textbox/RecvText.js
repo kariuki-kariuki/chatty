@@ -3,7 +3,7 @@ function RecvText(){
   return (
     <div>
       <div className="recv">
-        <img src={require("./cat.jpg")} />
+        <img src={require("./cat.jpg")}alt="nada"/>
         <div className="recvText">
           <h6>Sammy Doe</h6>
           <p>Want Some</p>

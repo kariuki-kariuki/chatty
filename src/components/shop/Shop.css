@@ -25,4 +25,9 @@
 .cont{
   height: 90vh;
   overflow: scroll;
+  /* position: relative; */
+}
+
+.dis{
+  position: relative;
 }
