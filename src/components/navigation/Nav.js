@@ -19,7 +19,7 @@ function Nav(){
         </div>
       </NavLink>
 
-      <NavLink to="/">
+      <NavLink to="/signup">
         <div className="nav-1">
           <span
             className="iconify"

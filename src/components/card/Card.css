@@ -9,14 +9,17 @@ img{
   color: white;
   display: flex;
   padding-top: 20px;
+  padding-left: 20px;
 }
 
-p{
+.myCard p{
   margin: 5px;
+  font-size: .7rem;
 }
 
-h5{
+.myCard h5{
   margin: 5px;
   color: yellow;
+  font-size: 1rem;
 }
 

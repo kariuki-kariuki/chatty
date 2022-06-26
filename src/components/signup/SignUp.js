@@ -1,32 +1,43 @@
 import "./signup.css";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 // import axios from "axios";
-import { logout, signup, useAuth } from "../../firebase";
 
 function SignUp({setAcc}) {
   // const [loading, setLoading] = useState()
 
-  const currentUser = useAuth();
-  const [load, setLoad] = useState(false)
-
   const [userdata, setUserData] = useState({
-    name : "",
+    username : "",
     email : '',
     password : '',
-    id : ''
+    phone: "",
+    image: "",
   })
 
-  
+  function handleSubmit(e){
+    e.preventDefault()
+    // axios.post("http://localhost:4000/users", {
+    //   userdata
+    // })
 
-  async function handleSignup() {
-    setLoad(true)
-    try {
-      await signup(userdata.email, userdata.password);
-    } catch {
-      alert("Email taken");
-    }
-    setLoad(false)
+    fetch("http://localhost:4000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json",
+        "Accept" : "application/json"
+      },
+      body: JSON.stringify(userdata)
+    });
+
+    setUserData({
+      username: "",
+      email: "",
+      password: "",
+      phone: "",
+      image: "",
+    });
   }
+
 
   // const [ emails, setEmails] = useState([])
   // const getEmails = () =>{
@@ -40,19 +51,7 @@ function SignUp({setAcc}) {
   // }, )
   // console.log(emails)
 
-  function handleSubmit(e){
-    e.preventDefault()
-    setUserData({
-      ...userdata, 
-      id :  Math.floor(Math.random() * 2000000)
-    })
 
-    setAcc(userdata)
-    handleSignup()
-    // console(userdata)
-    setUserData({...userdata, email : '', password : '', name : ''})
-    console.log("userdata ", userdata)
-  }
   
   // function handleSubmit(e){
   //   e.preventDefault()
@@ -79,25 +78,58 @@ function SignUp({setAcc}) {
           type="email"
           value={userdata.email}
           className="inputEmail"
-          onChange={(e) => setUserData({...userdata, email : e.target.value})}
           placeholder=" &#x1F4E9;  example@gmail.com"
+          onChange={(e) =>
+            setUserData({
+              ...userdata,
+              email: e.target.value,
+            })
+          }
         />
         <br />
         <br />
-
         <input
-          name="fullName"
           type="text"
-          value={userdata.name}
+          className="username"
+          placeholder="sammy doe"
           required
-          className="inputEmail"
-          placeholder="    Sammy Doe"
-          onChange={ (e) =>  setUserData(
-            {
+          value={userdata.username}
+          onChange={(e) =>
+            setUserData({
               ...userdata,
-              name : e.target.value
-            }
-          )}
+              username: e.target.value,
+            })
+          }
+        />
+        <br />
+        <br />
+        <input
+          type="number"
+          className="phone"
+          placeholder="phone"
+          required
+          value={userdata.phone}
+          onChange={(e) =>
+            setUserData({
+              ...userdata,
+              phone: e.target.value,
+            })
+          }
+        />
+        <br />
+        <br />
+        <input
+          type="link"
+          className="link"
+          required
+          placeholder="image link"
+          value={userdata.image}
+          onChange={(e) =>
+            setUserData({
+              ...userdata,
+              image: e.target.value,
+            })
+          }
         />
         <br />
         <br />
@@ -105,12 +137,15 @@ function SignUp({setAcc}) {
           className="password"
           type="password"
           name="password"
-          value={userdata.password}
-          onChange = {(e) => setUserData({
-            ...userdata,
-            password : e.target.value
-          })}
+          required
           placeholder="&#128272;..........."
+          value={userdata.password}
+          onChange={(e) =>
+            setUserData({
+              ...userdata,
+              password: e.target.value,
+            })
+          }
         />
         <br />
         <br />
@@ -118,11 +153,10 @@ function SignUp({setAcc}) {
         <span> Agree To Terms And Policies?</span>
         <br />
         <br />
-        <input disabled = {load || currentUser} type="submit" value={currentUser ? 'Completed' : "SignUp" } className="submit" />
-        <br />
+        <input type="submit" value = "submit" />
         <div className="text-center">
           <p>
-            {/* Already have an account? <a>Login.</a> */}
+            Already have an account? <NavLink to="/login">Login.</NavLink>
           </p>
         </div>
       </form>
@@ -130,4 +164,4 @@ function SignUp({setAcc}) {
   );
 }
 
-export default SignUp;
+export default SignUp
