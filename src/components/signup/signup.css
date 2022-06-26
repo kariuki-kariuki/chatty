@@ -1,0 +1,67 @@
+.signup{
+  background-image: url("./my.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding-top: 10%;
+}
+
+.signup-card{
+  background-color: rgba(0, 0, 0, .4);
+  width: 40%;
+  padding: 5%;
+  margin-top: 20%;
+  margin: 0 auto;
+  color: whitesmoke;
+
+  border-radius: 10px;
+}
+h4{
+  margin: 0;
+}
+
+.span1{
+  font-size: .5rem;
+  margin: 0;
+}
+
+.inputEmail{
+  background-color: rgba(0, 0, 0, .4);
+  border: 1px solid white;
+  color: white;
+  border-radius: 6px;
+  width: 100%;
+  height: 30px;
+}
+
+.password{
+  background-color: rgba(0, 0, 0, .4);
+  border: 1px solid white;
+  color: white;
+  border-radius: 6px;
+  /* font-size: 20px; */
+  letter-spacing: 5px;
+  width: 100%;
+  height: 30px;
+}
+
+.check{
+  background-color: rgb(76, 76, 116);
+}
+
+.submit{
+  background-color: rgb(26, 26, 151);
+  width: 100%;
+  padding: 6px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .signup-card{
+    width: 90%;
+    margin-top: 20%;
+  }
+}
