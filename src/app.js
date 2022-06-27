@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./components/navigation/Nav";
 import Chat from "./components/chat/Chat";
 import { Route, Routes } from "react-router-dom";
@@ -8,6 +8,7 @@ import Login from "./components/login/Login";
 import SignUp from "./components/signup/SignUp";
 
 function App(){
+  const [userLogin, setUserLogin] = useState("")
   return (
     <div className="container-main bg-dark hero">
       <div className="row">
@@ -16,10 +17,10 @@ function App(){
         </div>
         <div className="col-sm-10 p-0">
           <Routes>
-            <Route path="/" element={<Chat />} />
-            <Route path="/funds" element={<Funds />} />
+            <Route path="/" element={<Chat userLogin = {userLogin}/>} />
+            <Route path="/funds" element={<Funds userLogin={ userLogin}/>} />
             <Route path="/shop" element={<Shop />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login setUserLogin = { setUserLogin}/>} />
             <Route path="/signup" element={<SignUp />} />
           </Routes>
         </div>

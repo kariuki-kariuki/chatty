@@ -1,16 +1,16 @@
 import "./Profile.css"
 
-function Profile(){
+function Profile({ userLogin }){
   return(
     <div className="container-main profile">
       <header>
         PROFILE
       </header>
       <div className="image">
-        <img  src={require("./download.jpeg")} alt="nada"/>
+        <img  src={ userLogin.image } alt="nada"/>
       </div>
       <div className="name">
-        Sammy Doe
+        {userLogin.username}
       </div>
       <div className="container-main transaction">
         <h3 className="text-center">SPENDINGS</h3>

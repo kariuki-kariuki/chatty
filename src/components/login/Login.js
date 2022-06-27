@@ -4,8 +4,10 @@ import { useState } from "react";
 // import useLogin from "../../hooks/useLogin";
 // import axios from 'axios'
 
-function Login(){
-  const[db, setDbphone] = useState("")
+function Login({ setUserLogin }){
+  const[db, setDbphone] = useState({
+    password: "",
+  })
   const [loading, setLoading] = useState(false)
   const[loginData, setLoginData] = useState({
     password: "",
@@ -15,7 +17,7 @@ function Login(){
   function handleLogin(e){
     e.preventDefault()
     setLoading(true)
-    fetch(`http://localhost:4000/users/${loginData.phone}`)
+    fetch(`http://localhost:4400/users/${loginData.phone}`)
     .then(res => res.json())
     .then(res => {
       setDbphone(res)
@@ -28,6 +30,12 @@ function Login(){
       if(db.password === loginData.password){
         // useLogin(loginData.phone)
         alert("login successfull")
+        setUserLogin({
+          username: db.username,
+          phone: db.phone,
+          image: db.image
+        })
+
       } else{
         alert("User not found")
       }

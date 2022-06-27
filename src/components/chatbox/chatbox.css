@@ -1,0 +1,22 @@
+.chatbox{
+  width: 100%;
+  position: fixed;
+  bottom: 50px;
+
+}
+
+.chatbox input{
+  background: rgba(0, 0, 0, .7);
+  color: wheat;
+  padding: 10px;
+  /* border-radius: 15px; */
+  width: 30%;
+  border: none;
+}
+
+.chatbox button{
+  background-color: blue;
+  border: none;
+  padding: 10px;
+
+}
