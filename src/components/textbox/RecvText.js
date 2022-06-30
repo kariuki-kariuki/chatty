@@ -1,12 +1,12 @@
 import "./RecvText.css"
-function RecvText(){
+function RecvText({name, message}){
   return (
     <div>
       <div className="recv">
         <img src={require("./cat.jpg")}alt="nada"/>
         <div className="recvText">
-          <h6>Sammy Doe</h6>
-          <p>Want Some</p>
+          <h6>{name}</h6>
+          <p>{ message }</p>
         </div>
       </div>
     </div>

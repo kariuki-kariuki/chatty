@@ -1,16 +1,19 @@
 import "./Card.css"
 
-function Card({ setActiveChat }){
+function Card({ userLogin, phone , name, setMessage, setActiveChat }){
   function handleClick(){
-    setActiveChat(789)
+    setActiveChat({phone: phone, name: name})
+    fetch(`http://localhost:4400/messages/${userLogin.phone}/${phone}`)
+      .then((res) => res.json())
+      .then((res) => setMessage(res));
     // console.log(789)
   }
   return (
     <div className="myCard" onClick={handleClick}>
       <img src={require("./images.jpeg")} alt="nada"/>
       <div style={{paddingLeft: "0px"}}>
-        <h5>Sammy Doe</h5>
-        <p>Hello world</p>
+        <h5>{name}</h5>
+        {/* <p>Hello world</p> */}
       </div>
     </div>
   );

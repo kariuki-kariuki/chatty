@@ -8,7 +8,7 @@ import Login from "./components/login/Login";
 import SignUp from "./components/signup/SignUp";
 
 function App(){
-  const [userLogin, setUserLogin] = useState("")
+  const [userLogin, setUserLogin] = useState({phone : 742, name: "wendy"})
   return (
     <div className="container-main bg-dark hero">
       <div className="row">
