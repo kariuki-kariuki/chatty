@@ -7,11 +7,12 @@ import ChatBox from "../chatbox/chatbox";
 import { useEffect, useState } from "react";
 
 function Chat({userLogin}){
-  const [activeChat, setActiveChat] = useState({name: "", phone: ""});
+  const [activeChat, setActiveChat] = useState({
+    phones: "",
+    names: ""
+  });
   const [contacts, setContacts] = useState([])
   const [msg, setMessage] = useState([])
-  console.log(msg)
-  console.log(contacts)
 
   useEffect(() => {
     fetch(`http://localhost:4400/contacts/${userLogin.phone}`)
@@ -33,6 +34,7 @@ function Chat({userLogin}){
           userLogin={userLogin}
           setMessage={setMessage}
           text={contact.last_message.text_massage}
+          activeChat={activeChat}
         />
       );
     } else {
@@ -45,6 +47,7 @@ function Chat({userLogin}){
           date={contact.created_at}
           userLogin={userLogin}
           setMessage={setMessage}
+          activeChat={activeChat}
         />
       );
       
@@ -73,18 +76,23 @@ function Chat({userLogin}){
     }
   })
 
-  console.log(message_to_display)
 
   
   return (
     <div className="row">
-      <div className="col-sm-3">{ contacts_to_display }</div>
+      <div className="col-sm-3">
+        {contacts_to_display}
+      </div>
       <div className="col-sm-6 user-chats">
-        { message_to_display }
-        <ChatBox userLogin = { userLogin } activeChat={ activeChat }/>
+        {message_to_display}
+        <ChatBox
+          userLogin={userLogin}
+          activeChat={activeChat}
+          setMessage={setMessage}
+        />
       </div>
       <div className="col-sm-3 m-0">
-        <Profile userLogin = { userLogin }/>
+        <Profile userLogin={userLogin} />
       </div>
     </div>
   );

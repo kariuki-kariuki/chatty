@@ -2,25 +2,43 @@ import { useState } from "react"
 import "./chatbox.css"
 
 function ChatBox({ userLogin, activeChat }){
+  let recv = activeChat.phone 
   const [message, setMessage] = useState({
     text_massage : "",
     sender: userLogin.phone,
-    receiver: activeChat
-    // type: "sent"
+    receiver: activeChat.phones,
+    type: "text"
   })
+  
   function handleSubmit(e){
-    console.log(activeChat);
-    e.preventDefault()
-    console.log(message)
-    fetch("http://localhost:4400/messages", {
-      method: "POST",
-      headers : {
-        "Content-Type" : "application/json",
-        "Accept" : "application/json"
-      },
-      body: JSON.stringify(message)
-
+    e.preventDefault();
+    setMessage({
+      ...message,
+      receiver: activeChat.phone
     })
+    if(message.text_massage !== '' && activeChat.phone !== ""){
+      fetch("http://localhost:4400/messages", {
+        method: "POST",
+        headers : {
+          "Content-Type" : "application/json",
+          "Accept" : "application/json"
+        },
+        body: JSON.stringify({
+          text_massage: message.text_massage,
+          sender: message.sender,
+          receiver: activeChat.phones,
+          type: "text"
+
+        })
+
+      })
+      .then(res => res.json())
+      .then(res => console.log(res))
+      setMessage({
+        ...message,
+        text_massage : ""
+      })
+    }
   }
 
   return(

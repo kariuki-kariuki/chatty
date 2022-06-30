@@ -1,12 +1,19 @@
+import { useState } from "react";
 import "./Card.css"
 
-function Card({ userLogin, phone , name, setMessage, setActiveChat , text = "", date}){
+function Card({ userLogin, phone , name, setMessage, setActiveChat , text = "", activeChat}){
+
   function handleClick(){
-    setActiveChat({phone: phone, name: name})
+
+    setActiveChat({
+      ...activeChat,
+      phones: phone,
+      names: name
+    })
+
     fetch(`http://localhost:4400/messages/${userLogin.phone}/${phone}`)
       .then((res) => res.json())
       .then((res) => setMessage(res));
-    // console.log(789)
   }
   return (
     <div className="myCard" onClick={handleClick}>

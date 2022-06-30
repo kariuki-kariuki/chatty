@@ -17,9 +17,10 @@ function Login({ setUserLogin }){
   function handleLogin(e){
     e.preventDefault()
     setLoading(true)
-    fetch(`http://localhost:4400/users/${loginData.phone}`)
+    fetch(`http://localhost:4400/login/${loginData.phone}/${loginData.password}`)
     .then(res => res.json())
     .then(res => {
+      console.log(res)
       setDbphone(res)
       setLoading(false)
     })
@@ -27,17 +28,27 @@ function Login({ setUserLogin }){
 
     if(!loading){
       console.log(db)
-      if(db.password === loginData.password){
+      if(db.data ===  "Error login"){
         // useLogin(loginData.phone)
-        alert("login successfull")
+        alert("incorect username or password")
+        setDbphone("")
+        
+
+      } else{
+        alert(`loged in as ${db.username}`)
         setUserLogin({
           username: db.username,
           phone: db.phone,
-          image: db.image
-        })
+          image: db.image,
+        });
+        setDbphone("")
+        setLoginData({
+          ...loginData,
+          password: "",
+          phone: "",
+        });
+        setLoading(true)
 
-      } else{
-        alert("User not found")
       }
     }
 

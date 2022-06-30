@@ -20,7 +20,7 @@ function SignUp({setAcc}) {
     //   userdata
     // })
 
-    fetch("http://localhost:4000/users", {
+    fetch("http://localhost:4400/users", {
       method: "POST",
       headers: {
         "Content-Type" : "application/json",
