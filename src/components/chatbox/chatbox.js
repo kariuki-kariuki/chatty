@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./chatbox.css"
 
-function ChatBox({ userLogin, activeChat }){
+function ChatBox({ userLogin, activeChat , setShow}){
   let recv = activeChat.phone 
   const [message, setMessage] = useState({
     text_massage : "",
@@ -51,6 +51,7 @@ function ChatBox({ userLogin, activeChat }){
         })}
       />
       <button type="submit">send</button>
+      <button style={{marginLeft: "10px"}} onClick = {() => setShow("block")} >wallet</button>
     </form>
   )
 }

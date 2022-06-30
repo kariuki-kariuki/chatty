@@ -4,6 +4,7 @@ import SentText from "../textbox/SentText";
 import RecvText from "../textbox/RecvText";
 import Profile from "../profile/Profile";
 import ChatBox from "../chatbox/chatbox";
+import Transfer from "../transfers/Transfer";
 import { useEffect, useState } from "react";
 
 function Chat({userLogin}){
@@ -13,6 +14,7 @@ function Chat({userLogin}){
   });
   const [contacts, setContacts] = useState([])
   const [msg, setMessage] = useState([])
+  const [show, setShow] = useState('none')
 
   useEffect(() => {
     fetch(`http://localhost:4400/contacts/${userLogin.phone}`)
@@ -89,7 +91,9 @@ function Chat({userLogin}){
           userLogin={userLogin}
           activeChat={activeChat}
           setMessage={setMessage}
+          setShow = {setShow}
         />
+        <Transfer userLogin={userLogin} activeChat={ activeChat } setMessage = { setMessage } setShow = { setShow } show={show}/>
       </div>
       <div className="col-sm-3 m-0">
         <Profile userLogin={userLogin} />
