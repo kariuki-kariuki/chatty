@@ -1,13 +1,21 @@
+import { useState } from "react"
 import "./Profile.css"
 
 function Profile({ userLogin }){
+
+  const [balance, setBalance] = useState("")
+
+  fetch("http://localhost:4400/balance")
+  .then(bal => bal.json())
+  .then(bal => setBalance(bal))
+
   return(
     <div className="container-main profile">
       <header>
         PROFILE
       </header>
       <div className="image">
-        <img  src={ userLogin.image } alt="nada"/>
+        <img  src={ require("./download.jpeg") } alt="nada"/>
       </div>
       <div className="name">
         {userLogin.username}
