@@ -11,6 +11,7 @@ function Chat({userLogin}){
   const [contacts, setContacts] = useState([])
   const [msg, setMessage] = useState([])
   console.log(msg)
+  console.log(contacts)
 
   useEffect(() => {
     fetch(`http://localhost:4400/contacts/${userLogin.phone}`)
@@ -20,15 +21,53 @@ function Chat({userLogin}){
 
  
 
-  let contacts_to_display = contacts.map(contact => (
-    <Card name = {contact.name} phone = {contact.receiver} setActiveChat = { setActiveChat } key={contact.receiver} userLogin = { userLogin } setMessage = { setMessage }/>
-  ))
+  let contacts_to_display = contacts.map(contact => 
+    { if(contact.last_message !== null){
+      return (
+        <Card
+          name={contact.name}
+          phone={contact.phone}
+          setActiveChat={setActiveChat}
+          key={contact.phone}
+          date={contact.created_at}
+          userLogin={userLogin}
+          setMessage={setMessage}
+          text={contact.last_message.text_massage}
+        />
+      );
+    } else {
+      return (
+        <Card
+          name={contact.name}
+          phone={contact.phone}
+          setActiveChat={setActiveChat}
+          key={contact.phone}
+          date={contact.created_at}
+          userLogin={userLogin}
+          setMessage={setMessage}
+        />
+      );
+      
+    }
+  })
 
   let message_to_display = msg.map((msgs) => {
     if(msgs.sender === userLogin.phone && msgs.typ === "text"){
-      return <SentText name = {userLogin.name} message = { msgs.text_massage} key = {msgs.id}/>
+      return (
+        <SentText
+          name={userLogin.name}
+          message={msgs.text_massage}
+          key={msgs.id}
+        />
+      );
     } else if(msgs.sender !== userLogin && msgs.typ === "text") {
-      return <RecvText name={activeChat.name} message={msgs.text_massage} key = {msgs.id}/>;
+      return (
+        <RecvText
+          name={activeChat.name}
+          message={msgs.text_massage}
+          key={msgs.id}
+        />
+      );
     } else if(msgs.sender === userLogin.phone && msgs.type === "transactions"){
 
     }
