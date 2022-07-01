@@ -13,7 +13,7 @@ function Transfer({userLogin, activeChat, setShow, show}){
       text_massage: amount,
       sender: userLogin.phone,
       receiver: activeChat.phones,
-      type: "transaction",
+      typ: "transaction",
     }),
   });
   return (

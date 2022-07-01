@@ -17,7 +17,7 @@ function Chat({userLogin}){
   const [show, setShow] = useState('none')
 
   useEffect(() => {
-    fetch(`http://localhost:4400/contacts/${userLogin.phone}`)
+    fetch(`https://chatty-apis.herokuapp.com/contacts/${userLogin.phone}`)
       .then((res) => res.json())
       .then((res) => setContacts(res));
   }, [userLogin, setContacts])

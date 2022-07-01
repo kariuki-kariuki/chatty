@@ -10,10 +10,10 @@ function Card({ userLogin, phone , name, setMessage, setActiveChat , text = "", 
       phones: phone,
       names: name
     })
-
-    fetch(`http://localhost:4400/messages/${userLogin.phone}/${phone}`)
-      .then((res) => res.json())
-      .then((res) => setMessage(res));
+//chatty-apis.herokuapp.com/contacts/742
+https: fetch(`https://chatty-apis.herokuapp.com/messages/${userLogin.phone}/${phone}`)
+  .then((res) => res.json())
+  .then((res) => setMessage(res));
   }
   return (
     <div className="myCard" onClick={handleClick}>
