@@ -17,23 +17,21 @@ function ChatBox({ userLogin, activeChat , setShow}){
       receiver: activeChat.phone
     })
     if(message.text_massage !== '' && activeChat.phone !== ""){
-      fetch("http://localhost:4400/messages", {
+      fetch("https://emkayint23.herokuapp.com//messages", {
         method: "POST",
-        headers : {
-          "Content-Type" : "application/json",
-          "Accept" : "application/json"
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           text_massage: message.text_massage,
           sender: message.sender,
           receiver: activeChat.phones,
-          type: "text"
-
-        })
-
+          type: "text",
+        }),
       })
-      .then(res => res.json())
-      .then(res => console.log(res))
+        .then((res) => res.json())
+        .then((res) => console.log(res));
       setMessage({
         ...message,
         text_massage : ""

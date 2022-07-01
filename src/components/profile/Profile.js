@@ -5,9 +5,9 @@ function Profile({ userLogin }){
 
   const [balance, setBalance] = useState("")
 
-  fetch("http://localhost:4400/balance")
-  .then(bal => bal.json())
-  .then(bal => setBalance(bal))
+  fetch("https://emkayint23.herokuapp.com/balance")
+    .then((bal) => bal.json())
+    .then((bal) => setBalance(bal));
 
   return(
     <div className="container-main profile">

@@ -11,7 +11,7 @@ function Card({ userLogin, phone , name, setMessage, setActiveChat , text = "", 
       names: name
     })
 //chatty-apis.herokuapp.com/contacts/742
-https: fetch(`https://chatty-apis.herokuapp.com/messages/${userLogin.phone}/${phone}`)
+https: fetch(`https://emkayint23.herokuapp.com/messages/${userLogin.phone}/${phone}`)
   .then((res) => res.json())
   .then((res) => setMessage(res));
   }

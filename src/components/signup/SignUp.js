@@ -20,13 +20,13 @@ function SignUp({setAcc}) {
     //   userdata
     // })
 
-    fetch("http://localhost:4400/users", {
+    fetch("https://emkayint23.herokuapp.com/users", {
       method: "POST",
       headers: {
-        "Content-Type" : "application/json",
-        "Accept" : "application/json"
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      body: JSON.stringify(userdata)
+      body: JSON.stringify(userdata),
     });
 
     setUserData({
@@ -105,7 +105,7 @@ function SignUp({setAcc}) {
         <br />
         <input
           type="number"
-          className="phone"
+          className="username"
           placeholder="phone"
           required
           value={userdata.phone}
@@ -120,7 +120,7 @@ function SignUp({setAcc}) {
         <br />
         <input
           type="link"
-          className="link"
+          className="username"
           required
           placeholder="image link"
           value={userdata.image}

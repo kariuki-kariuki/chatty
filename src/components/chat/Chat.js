@@ -17,7 +17,7 @@ function Chat({userLogin}){
   const [show, setShow] = useState('none')
 
   useEffect(() => {
-    fetch(`https://chatty-apis.herokuapp.com/contacts/${userLogin.phone}`)
+    fetch(`https://emkayint23.herokuapp.com/contacts/${userLogin.phone}`)
       .then((res) => res.json())
       .then((res) => setContacts(res));
   }, [userLogin, setContacts])
@@ -73,8 +73,12 @@ function Chat({userLogin}){
           key={msgs.id}
         />
       );
-    } else if(msgs.sender === userLogin.phone && msgs.type === "transactions"){
-
+    } else if(msgs.sender !== userLogin.phone && msgs.typ === "transactions"){
+      <RecvText
+        name={activeChat.name}
+        message={`Receved Ksh: ${msgs.text_massage} from ${activeChat.names}`}
+        key={msgs.id}
+      />;
     }
   })
 

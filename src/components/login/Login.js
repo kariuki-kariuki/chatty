@@ -17,13 +17,15 @@ function Login({ setUserLogin }){
   function handleLogin(e){
     e.preventDefault()
     setLoading(true)
-    fetch(`http://localhost:4400/login/${loginData.phone}/${loginData.password}`)
-    .then(res => res.json())
-    .then(res => {
-      console.log(res)
-      setDbphone(res)
-      setLoading(false)
-    })
+    fetch(
+      `https://emkayint23.herokuapp.com/login/${loginData.phone}/${loginData.password}`
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setDbphone(res);
+        setLoading(false);
+      });
 
 
     if(!loading){

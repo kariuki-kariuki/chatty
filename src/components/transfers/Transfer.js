@@ -3,7 +3,7 @@ import "./Transfer.css"
 
 function Transfer({userLogin, activeChat, setShow, show}){
   const [amount, setAmount] = useState("")
-  fetch("http://localhost:4400/messages", {
+  fetch("https://emkayint23.herokuapp.com/messages", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
