@@ -5,8 +5,8 @@ function Profile({ userLogin }){
 
   const [balance, setBalance] = useState("")
 
-  fetch("https://emkayint23.herokuapp.com/balance")
-    .then((bal) => bal.json())
+  fetch(`https://emkayint23.herokuapp.com/balance/${userLogin.phone}`)
+    .then((bal) => bal.text())
     .then((bal) => setBalance(bal));
 
   return(

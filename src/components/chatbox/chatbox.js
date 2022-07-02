@@ -17,7 +17,7 @@ function ChatBox({ userLogin, activeChat , setShow}){
       receiver: activeChat.phone
     })
     if(message.text_massage !== '' && activeChat.phone !== ""){
-      fetch("https://emkayint23.herokuapp.com//messages", {
+      fetch("https://emkayint23.herokuapp.com/messages/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

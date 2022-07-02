@@ -17,7 +17,12 @@ function Chat({userLogin}){
   const [show, setShow] = useState('none')
 
   useEffect(() => {
-    fetch(`https://emkayint23.herokuapp.com/contacts/${userLogin.phone}`)
+    fetch(`https://emkayint23.herokuapp.com/contacts/${userLogin.phone}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((res) => setContacts(res));
   }, [userLogin, setContacts])
