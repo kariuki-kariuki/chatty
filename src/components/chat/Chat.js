@@ -15,6 +15,9 @@ function Chat({userLogin}){
   const [contacts, setContacts] = useState([])
   const [msg, setMessages] = useState([])
   const [show, setShow] = useState('none')
+  const [location, setLocation] = useState('');
+  // console.log(location)
+
 
   useEffect(() => {
     fetch(`https://emkayint23.herokuapp.com/contacts/${userLogin.phone}`, {
@@ -25,7 +28,11 @@ function Chat({userLogin}){
     })
       .then((res) => res.json())
       .then((res) => setContacts(res));
-  }, [userLogin, setContacts])
+      let div = document.getElementById('mychats')
+      // document.getElementById("mychats").scrollTop = location;
+      div.scrollTop = div.scrollHeight
+
+  }, [userLogin, setContacts, msg])
 
  
 
@@ -42,6 +49,7 @@ function Chat({userLogin}){
           setMessages ={ setMessages }
           text={contact.last_message.text_massage}
           activeChat={activeChat}
+          setLocation = {setLocation}
         />
       );
     } else {
@@ -87,6 +95,8 @@ function Chat({userLogin}){
     }
   })
 
+  
+
 
   
   return (
@@ -94,7 +104,7 @@ function Chat({userLogin}){
       <div className="col-sm-3">
         {contacts_to_display}
       </div>
-      <div className="col-sm-6 user-chats">
+      <div className="col-sm-6 user-chats" id="mychats">
         {message_to_display}
         <ChatBox
           userLogin={userLogin}

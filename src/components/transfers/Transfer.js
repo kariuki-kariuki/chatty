@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./Transfer.css"
 
-function Transfer({userLogin, activeChat, setShow, show}){
+function Transfer({userLogin, activeChat, setShow, show, setMessages}){
   const [amount, setAmount] = useState("")
 
   function handleSubmit(){
