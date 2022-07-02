@@ -1,9 +1,8 @@
-import { useState } from "react";
 import "./Card.css"
 
-function Card({ userLogin, phone , name, setMessages, setActiveChat , text = "", activeChat, setLocation}){
+function Card(props){
   
-
+  const { userLogin, phone , name, setMessages, setActiveChat , text = "", activeChat} = props 
   function handleClick(){
 
     setActiveChat({
@@ -24,7 +23,6 @@ function Card({ userLogin, phone , name, setMessages, setActiveChat , text = "",
       console.log(document.getElementById("mychats").scrollHeight);
 
     });
-    setLocation(document.getElementById("mychats").scrollHeight)
     // console.log(document.getElementById("mychats").scrollHeight);
   }
   return (

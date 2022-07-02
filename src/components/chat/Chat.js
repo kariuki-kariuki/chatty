@@ -15,7 +15,6 @@ function Chat({userLogin}){
   const [contacts, setContacts] = useState([])
   const [msg, setMessages] = useState([])
   const [show, setShow] = useState('none')
-  const [location, setLocation] = useState('');
   // console.log(location)
 
 
@@ -49,7 +48,6 @@ function Chat({userLogin}){
           setMessages ={ setMessages }
           text={contact.last_message.text_massage}
           activeChat={activeChat}
-          setLocation = {setLocation}
         />
       );
     } else {
