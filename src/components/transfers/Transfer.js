@@ -8,7 +8,7 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
     e.preventDefault()
     console.log(`${userLogin.phone, activeChat.phones}`)
     if(amount !== "" && activeChat.phones !== ""){
-      fetch("http://localhost:4400/messages/new", {
+      fetch("https://emkayint23.herokuapp.com/messages/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
       .then(res => console.log(res))
       .catch(err => console.log(err.message))
 
-      fetch("http://localhost:4400/patch/sender", {
+      fetch("https://emkayint23.herokuapp.com/patch/sender", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
         .then((res) => console.log(res))
         .catch((err) => console.log(err.message));
 
-      fetch("http://localhost:4400/patch/receiver", {
+      fetch("https://emkayint23.herokuapp.com/patch/receiver", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
