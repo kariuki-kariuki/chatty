@@ -46,6 +46,7 @@ Invite others to join
 ## Links
 
 * [live link](https://chatty-six.vercel.app/)
+* [chatty-api](https://github.com/Emkayint/chatty-api)
 
 ## Contact Me
  * business.kariukimartin@gmail.com
