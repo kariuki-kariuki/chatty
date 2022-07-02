@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./chatbox.css"
 
-function ChatBox({ userLogin, activeChat , setShow}){
+function ChatBox({ userLogin, activeChat , setShow, setMessages }){
   let recv = activeChat.phone 
   const [message, setMessage] = useState({
     text_massage : "",
@@ -31,7 +31,8 @@ function ChatBox({ userLogin, activeChat , setShow}){
         }),
       })
         .then((res) => res.json())
-        .then((res) => console.log(res));
+        .then((res) => setMessages(res))
+        .catch(err => console.log(err.message))
       setMessage({
         ...message,
         text_massage : ""

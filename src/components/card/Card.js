@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Card.css"
 
-function Card({ userLogin, phone , name, setMessage, setActiveChat , text = "", activeChat}){
+function Card({ userLogin, phone , name, setMessages, setActiveChat , text = "", activeChat}){
 
   function handleClick(){
 
@@ -18,7 +18,7 @@ function Card({ userLogin, phone , name, setMessage, setActiveChat , text = "", 
     }
   })
   .then((res) => res.json())
-  .then((res) => setMessage(res));
+  .then((res) => setMessages(res));
   }
   return (
     <div className="myCard" onClick={handleClick}>

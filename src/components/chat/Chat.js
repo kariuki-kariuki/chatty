@@ -13,7 +13,7 @@ function Chat({userLogin}){
     names: ""
   });
   const [contacts, setContacts] = useState([])
-  const [msg, setMessage] = useState([])
+  const [msg, setMessages] = useState([])
   const [show, setShow] = useState('none')
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function Chat({userLogin}){
           key={contact.phone}
           date={contact.created_at}
           userLogin={userLogin}
-          setMessage={setMessage}
+          setMessages ={ setMessages }
           text={contact.last_message.text_massage}
           activeChat={activeChat}
         />
@@ -53,7 +53,7 @@ function Chat({userLogin}){
           key={contact.phone}
           date={contact.created_at}
           userLogin={userLogin}
-          setMessage={setMessage}
+          setMessages={setMessages}
           activeChat={activeChat}
         />
       );
@@ -99,10 +99,10 @@ function Chat({userLogin}){
         <ChatBox
           userLogin={userLogin}
           activeChat={activeChat}
-          setMessage={setMessage}
+          setMessages ={ setMessages }
           setShow = {setShow}
         />
-        <Transfer userLogin={userLogin} activeChat={ activeChat } setMessage = { setMessage } setShow = { setShow } show={show}/>
+        <Transfer userLogin={userLogin} activeChat={ activeChat } setMessages = { setMessages } setShow = { setShow } show={show}/>
       </div>
       <div className="col-sm-3 m-0">
         <Profile userLogin={userLogin} />
