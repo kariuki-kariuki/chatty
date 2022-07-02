@@ -74,6 +74,7 @@ function Chat({userLogin}){
           name={userLogin.name}
           message={msgs.text_massage}
           key={msgs.id}
+          date = {msgs.created_at}
         />
       );
     } else if(msgs.sender !== userLogin && msgs.typ === "text") {
@@ -81,15 +82,27 @@ function Chat({userLogin}){
         <RecvText
           name={activeChat.name}
           message={msgs.text_massage}
+          date={msgs.created_at}
           key={msgs.id}
         />
       );
-    } else if(msgs.sender !== userLogin.phone && msgs.typ === "transactions"){
-      <RecvText
-        name={activeChat.name}
+    } else if(msgs.sender !== userLogin.phone && msgs.typ === "transaction"){
+      return (<RecvText
+        name={activeChat.names}
         message={`Receved Ksh: ${msgs.text_massage} from ${activeChat.names}`}
         key={msgs.id}
-      />;
+        bc = "yellow"
+      />)
+    } else if (msgs.sender === userLogin.phone && msgs.typ === "transaction") {
+      return (
+        <SentText
+          name={activeChat.names}
+          message={`Sent Ksh: ${msgs.text_massage} to ${activeChat.names}`}
+          key={msgs.id}
+          date={msgs.created_at}
+          bc="yellow"
+        />
+      );
     }
   })
 

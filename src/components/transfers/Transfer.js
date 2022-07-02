@@ -25,14 +25,14 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
         
       })
       .then(res => res.json())
-      .then(res => console.log(res))
+      .then(res => setMessages(res))
       .catch(err => console.log(err.message))
 
       fetch("https://emkayint23.herokuapp.com/patch/sender", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
+          "Accept": "application/json",
         },
         body: JSON.stringify({
           text_massage: amount,
@@ -48,7 +48,7 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
+          "Accept" : "application/json",
         },
         body: JSON.stringify({
           text_massage: amount,
@@ -57,7 +57,7 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
         }),
       })
         .then((res) => res.json())
-        .then((res) => console.log(res))
+        .then((res) => alert("success"))
         .catch((err) => console.log(err.message));
 
        setAmount("");
