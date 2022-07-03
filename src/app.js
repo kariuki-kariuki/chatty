@@ -13,8 +13,8 @@ function App(){
     <div className="container-main bg-dark hero">
       {!userLogin ? (
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={<Login />} userLogin={userLogin} />
+          <Route path="/signup" element={<SignUp />} userLogin = {userLogin}/>
         </Routes>
       ) : (
         <div className="row">
@@ -26,11 +26,6 @@ function App(){
               <Route path="/" element={<Chat userLogin={userLogin} />} />
               <Route path="/funds" element={<Funds userLogin={userLogin} />} />
               <Route path="/shop" element={<Shop />} />
-              <Route
-                path="/login"
-                element={<Login setUserLogin={setUserLogin} />}
-              />
-              <Route path="/signup" element={<SignUp />} />
             </Routes>
           </div>
         </div>
