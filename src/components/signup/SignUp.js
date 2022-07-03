@@ -1,18 +1,29 @@
 import "./signup.css";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-// import axios from "axios";
+import {
+  ref,
+  uploadBytes,
+} from "firebase/storage";
+import { storage } from "../../firebase"
 
-function SignUp({setAcc}) {
-  // const [loading, setLoading] = useState()
+function SignUp(setUserLogin) {
 
   const [userdata, setUserData] = useState({
     username : "",
     email : '',
     password : '',
     phone: "",
-    image: "",
   })
+  const [imgUpload, setImgUpload] = useState(null);
+  console.log(imgUpload);
+
+  const uploadImg = () => {
+    if (imgUpload == null) return;
+    const imageRef = ref(storage, `profile-picture/${userdata.phone}`);
+    uploadBytes(imageRef, imgUpload);
+  };
+
 
   function handleSubmit(e){
     e.preventDefault()
@@ -46,7 +57,7 @@ function SignUp({setAcc}) {
               </div>
             </div>
 
-            <input type="file" className="file"/>
+            <input type="file" className="file" onChange = {(e) => setImgUpload(e.target.files)}/>
           </div>
 
           <div className="col-sm-6">
@@ -120,10 +131,10 @@ function SignUp({setAcc}) {
             <span> Agree To Terms And Policies?</span>
             <br />
             <br />
-            <input type="submit" value = "submit" className="submit" />
+            <input type="submit" value = "SignUp" className="submit" />
             <div className="text-center">
               <p>
-                Already have an account? <NavLink to="/">Login.</NavLink>
+                Already have an account? <NavLink to="/">SignIn</NavLink>
               </p>
             </div>
           </div>

@@ -13,8 +13,8 @@ function App(){
     <div className="container-main bg-dark hero">
       {!userLogin ? (
         <Routes>
-          <Route path="/" element={<Login />} userLogin={userLogin} />
-          <Route path="/signup" element={<SignUp />} userLogin = {userLogin}/>
+          <Route path="/" element={<Login />} setUserLogin={ setUserLogin } />
+          <Route path="/signup" element={<SignUp />} setUserLogin = { setUserLogin }/>
         </Routes>
       ) : (
         <div className="row">
@@ -30,7 +30,6 @@ function App(){
           </div>
         </div>
       )}
-      <SignUp />
     </div>
   );
 }
