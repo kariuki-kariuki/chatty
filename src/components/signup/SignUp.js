@@ -16,6 +16,7 @@ function SignUp(setUserLogin) {
     phone: "",
   })
   const [imgUpload, setImgUpload] = useState(null);
+  const [srcUrl , setSrcUrl] = useState(require("./images.jpeg"))
   console.log(imgUpload);
 
   const uploadImg = () => {
@@ -53,11 +54,14 @@ function SignUp(setUserLogin) {
           <div className="col-sm-6">
             <div className="container-main d-flex justify-content-center align-items-center pt-5 mt-5">
               <div className="profile-choice">
-                <img src=""/>
+                <img src={srcUrl}/>
               </div>
             </div>
 
-            <input type="file" className="file" onChange = {(e) => setImgUpload(e.target.files)}/>
+            <input type="file" className="file" onChange = {(e) => {
+              setImgUpload(e.target.files)
+              setSrcUrl(URL.createObjectURL(e.target.files[0]))
+            }}/>
           </div>
 
           <div className="col-sm-6">
