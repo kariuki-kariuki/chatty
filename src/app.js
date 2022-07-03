@@ -11,7 +11,9 @@ function App(){
   const [userLogin, setUserLogin] = useState({phone : 742, name: "wendy"})
   return (
     <div className="container-main bg-dark hero">
-      <div className="row">
+      <SignUp />
+
+      {/* <div className="row">
         <div className="col-sm-2 p-0">
           <Nav />
         </div>
@@ -24,7 +26,7 @@ function App(){
             <Route path="/signup" element={<SignUp />} />
           </Routes>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -41,7 +41,7 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
         })
       })
         .then((res) => res.json())
-        .then((res) => console.log(res))
+        .then((res) => console.log(res.message))
         .catch((err) => console.log(err.message));
 
       fetch("https://emkayint23.herokuapp.com/patch/receiver", {
@@ -57,7 +57,7 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
         }),
       })
         .then((res) => res.json())
-        .then((res) => alert("success"))
+        .then((res) => alert(`${res.message}`))
         .catch((err) => console.log(err.message));
 
        setAmount("");

@@ -3,19 +3,36 @@
   background-size: cover;
   background-position: center;
   height: 100vh;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .signup-card{
-  background-color: rgba(0, 0, 0, .4);
-  width: 40%;
+  background-color: rgba(207, 193, 193, 0.4);
+  width: 60%;
   padding: 5%;
-  margin-top: 20%;
+  margin-top: 10%;
   margin: 0 auto;
   color: whitesmoke;
 
   border-radius: 10px;
 }
+
+.profile-choice img{
+  width: 200px;
+  height: 200px;
+  border: none;
+}
+
+.profile-choice{
+  background-color: antiquewhite;
+  border-radius: 50%;
+
+}
+.file{
+  margin-top: 20px;
+  background-color: rgba(8, 8, 8, .4);
+}
+
 h4{
   margin: 0;
 }
@@ -29,6 +46,7 @@ h4{
   background-color: rgba(0, 0, 0, .4);
   border: 1px solid white;
   color: white;
+  padding: 20px;
   border-radius: 6px;
   width: 100%;
   height: 30px;
@@ -40,6 +58,7 @@ h4{
   color: white;
   border-radius: 6px;
   /* font-size: 20px; */
+  padding: 20px;
   letter-spacing: 5px;
   width: 100%;
   height: 30px;
@@ -51,6 +70,7 @@ h4{
   border-radius: 6px;
   width: 100%;
   height: 30px;
+  padding: 20px;
   background-color: rgba(0, 0, 0, .4);
 }
 
