@@ -120,10 +120,10 @@ function SignUp({setAcc}) {
             <span> Agree To Terms And Policies?</span>
             <br />
             <br />
-            <input type="submit" value = "submit" />
+            <input type="submit" value = "submit" className="submit" />
             <div className="text-center">
               <p>
-                Already have an account? <NavLink to="/login">Login.</NavLink>
+                Already have an account? <NavLink to="/">Login.</NavLink>
               </p>
             </div>
           </div>

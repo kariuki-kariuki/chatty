@@ -7,7 +7,7 @@
 }
 
 .signup-card{
-  background-color: rgba(207, 193, 193, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
   width: 60%;
   padding: 5%;
   margin-top: 10%;
@@ -38,7 +38,7 @@ h4{
 }
 
 .span1{
-  font-size: .5rem;
+  font-size: .7rem;
   margin: 0;
 }
 
