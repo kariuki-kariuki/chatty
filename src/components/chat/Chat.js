@@ -6,6 +6,7 @@ import Profile from "../profile/Profile";
 import ChatBox from "../chatbox/chatbox";
 import Transfer from "../transfers/Transfer";
 import { useEffect, useState } from "react";
+import Contact from "../contact/contact";
 
 function Chat({userLogin}){
   const [activeChat, setActiveChat] = useState({
@@ -15,6 +16,7 @@ function Chat({userLogin}){
   const [contacts, setContacts] = useState([])
   const [msg, setMessages] = useState([])
   const [show, setShow] = useState('none')
+  const [contacted, setContactShow] = useState(false)
   // console.log(location)
 
 
@@ -67,6 +69,11 @@ function Chat({userLogin}){
       
     }
   })
+  
+  function handleContact(){
+    // console.log(contacted)
+    setContactShow(!contacted)
+  }
 
   let message_to_display = msg.map((msgs) => {
     if(msgs.sender === userLogin.phone && msgs.typ === "text"){
@@ -114,9 +121,11 @@ function Chat({userLogin}){
   return (
     <div className="row">
       <div className="col-sm-3">
+        <button type = "button" className="btn btn-primary mybtn text-white" onClick={ handleContact }>new contact</button>
+        <Contact contact={ contacted } setContactShow = {setContactShow}/>
         {contacts_to_display}
       </div>
-      <div className="col-sm-6 user-chats" id="mychats">
+      <div className="col-sm-9 user-chats" id="mychats">
         {message_to_display}
         <ChatBox
           userLogin={userLogin}
@@ -125,9 +134,6 @@ function Chat({userLogin}){
           setShow = {setShow}
         />
         <Transfer userLogin={userLogin} activeChat={ activeChat } setMessages = { setMessages } setShow = { setShow } show={show}/>
-      </div>
-      <div className="col-sm-3 m-0">
-        <Profile userLogin={userLogin} />
       </div>
     </div>
   );

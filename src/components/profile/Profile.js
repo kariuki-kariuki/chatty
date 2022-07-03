@@ -1,13 +1,17 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./Profile.css"
 
 function Profile({ userLogin }){
 
   const [balance, setBalance] = useState("")
 
-  fetch(`https://emkayint23.herokuapp.com/balance/${userLogin.phone}`)
-    .then((bal) => bal.text())
-    .then((bal) => setBalance(bal));
+  // useEffect(() => {
+  //   fetch(`https://emkayint23.herokuapp.com/balance/${userLogin.phone}`)
+  //     .then((bal) => bal.json)
+  //     .then((bal) => setBalance(bal));
+  // }, [])
+
+  
 
   return(
     <div className="container-main profile">

@@ -15,16 +15,16 @@ function Login({ setUserLogin }){
     e.preventDefault()
     setLoading(true)
     fetch(
-      `http://localhost:4400/login/${loginData.phone}/${loginData.password}`
+      `https://emkayint23.herokuapp.com/login/${loginData.phone}/${loginData.password}`
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
-        if(res.data === "Error login"){
-          alert("Worng userName or password")
+        console.log(res);
+        if (res.data === "Error login") {
+          alert("Worng userName or password");
         } else {
-          alert("Welcome")
-          setUserLogin(res)
+          alert("Welcome");
+          setUserLogin(res);
         }
       });
   }

@@ -6,6 +6,7 @@ import {
 } from "firebase/storage";
 
 import { storage } from "../../firebase"
+import { useState } from "react";
 
 
 function Card(props){
