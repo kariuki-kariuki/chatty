@@ -5,9 +5,6 @@ import { useEffect, useState } from "react";
 // import axios from 'axios'
 
 function Login({ setUserLogin }){
-  const[db, setDbphone] = useState({
-    password: "",
-  })
   const [loading, setLoading] = useState(false)
   const[loginData, setLoginData] = useState({
     password: "",
@@ -18,41 +15,45 @@ function Login({ setUserLogin }){
     e.preventDefault()
     setLoading(true)
     fetch(
-      `https://emkayint23.herokuapp.com/login/${loginData.phone}/${loginData.password}`
+      `http://localhost:4400/login/${loginData.phone}/${loginData.password}`
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
-        setDbphone(res);
-        setLoading(false);
+        console.log(res)
+        if(res.data === "Error login"){
+          alert("Worng userName or password")
+        } else {
+          alert("Welcome")
+          setUserLogin(res)
+        }
       });
 
 
-    if(!loading){
-      console.log(db)
-      if(db.data ===  "Error login"){
-        // useLogin(loginData.phone)
-        alert("incorect username or password")
-        setDbphone("")
+    // if(!loading){
+    //   console.log(db)
+    //   if(db.data ===  "Error login"){
+    //     // useLogin(loginData.phone)
+    //     alert("incorect username or password")
+    //     setDbphone("")
         
 
-      } else{
-        alert(`loged in as ${db.username}`)
-        setUserLogin({
-          username: db.username,
-          phone: db.phone,
-          image: db.image,
-        });
-        setDbphone("")
-        setLoginData({
-          ...loginData,
-          password: "",
-          phone: "",
-        });
-        setLoading(true)
+    //   } else{
+    //     alert(`loged in as ${db.username}`)
+    //     setUserLogin({
+    //       username: db.username,
+    //       phone: db.phone,
+    //       image: db.image,
+    //     });
+    //     setDbphone("")
+    //     setLoginData({
+    //       ...loginData,
+    //       password: "",
+    //       phone: "",
+    //     });
+    //     setLoading(true)
 
-      }
-    }
+    //   }
+    // }
 
 
   }

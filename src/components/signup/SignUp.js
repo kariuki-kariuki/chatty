@@ -17,7 +17,7 @@ function SignUp(setUserLogin) {
   })
   const [imgUpload, setImgUpload] = useState(null);
   const [srcUrl , setSrcUrl] = useState(require("./images.jpeg"))
-  console.log(imgUpload);
+  // console.log(imgUpload);
 
   const uploadImg = () => {
     if (imgUpload == null) return;
@@ -29,24 +29,35 @@ function SignUp(setUserLogin) {
   function handleSubmit(e){
     e.preventDefault()
 
-    fetch("https://emkayint23.herokuapp.com/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(userdata),
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
+    if(imgUpload == null){
+      alert("Please select a profile image")
+    } else {
 
-    setUserData({
-      username: "",
-      email: "",
-      password: "",
-      phone: "",
-      image: "",
-    });
+      fetch("http://localhost:4400/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept" : "application/json",
+        },
+        body: JSON.stringify(userdata),
+      })
+      .then(res => res.json())
+      .then(res => {
+        if(res.response === "User Exist"){
+          alert("User Exists Do you want to login?")
+        } else {
+          uploadImg()
+          setUserData({
+            username: "",
+            email: "",
+            password: "",
+            phone: "",
+            image: "",
+          });
+          setImgUpload(null)
+        }
+      })
+    }
   }
 
   return (

@@ -19,18 +19,6 @@ function Nav(){
         </div>
       </NavLink>
 
-      <NavLink to="/signup">
-        <div className="nav-1">
-          <span
-            className="iconify"
-            data-icon="bxs:user-circle"
-            style={{ color: "yellow", marginTop: "20px" }}
-            data-width="52"
-            data-height="52"
-          ></span>
-        </div>
-      </NavLink>
-
       <NavLink to="/funds">
         <div className="nav-2">
           <span
