@@ -33,30 +33,30 @@ function SignUp(setUserLogin) {
       alert("Please select a profile image")
     } else {
 
-      fetch("http://localhost:4400/users", {
+      fetch("https://emkayint23.herokuapp.com/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept" : "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(userdata),
       })
-      .then(res => res.json())
-      .then(res => {
-        if(res.response === "User Exist"){
-          alert("User Exists Do you want to login?")
-        } else {
-          uploadImg()
-          setUserData({
-            username: "",
-            email: "",
-            password: "",
-            phone: "",
-            image: "",
-          });
-          setImgUpload(null)
-        }
-      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.response === "User Exist") {
+            alert("User Exists Do you want to login?");
+          } else {
+            uploadImg();
+            setUserData({
+              username: "",
+              email: "",
+              password: "",
+              phone: "",
+              image: "",
+            });
+            setImgUpload(null);
+          }
+        });
     }
   }
 

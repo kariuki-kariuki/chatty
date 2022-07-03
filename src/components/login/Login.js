@@ -27,35 +27,6 @@ function Login({ setUserLogin }){
           setUserLogin(res)
         }
       });
-
-
-    // if(!loading){
-    //   console.log(db)
-    //   if(db.data ===  "Error login"){
-    //     // useLogin(loginData.phone)
-    //     alert("incorect username or password")
-    //     setDbphone("")
-        
-
-    //   } else{
-    //     alert(`loged in as ${db.username}`)
-    //     setUserLogin({
-    //       username: db.username,
-    //       phone: db.phone,
-    //       image: db.image,
-    //     });
-    //     setDbphone("")
-    //     setLoginData({
-    //       ...loginData,
-    //       password: "",
-    //       phone: "",
-    //     });
-    //     setLoading(true)
-
-    //   }
-    // }
-
-
   }
 
 

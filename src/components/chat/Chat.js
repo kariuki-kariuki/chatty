@@ -27,6 +27,7 @@ function Chat({userLogin}){
     })
       .then((res) => res.json())
       .then((res) => setContacts(res));
+      
       let div = document.getElementById('mychats')
       // document.getElementById("mychats").scrollTop = location;
       div.scrollTop = div.scrollHeight
