@@ -36,7 +36,9 @@ function SignUp(setUserLogin) {
         Accept: "application/json",
       },
       body: JSON.stringify(userdata),
-    });
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
 
     setUserData({
       username: "",
