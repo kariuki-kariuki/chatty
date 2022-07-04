@@ -7,16 +7,15 @@ import {
 } from "firebase/storage";
 import { storage } from "../../firebase"
 
-function SignUp(setUserLogin) {
-
+function SignUp({setUserLogin}) {
   const [userdata, setUserData] = useState({
-    username : "",
-    email : '',
-    password : '',
+    username: "",
+    email: "",
+    password: "",
     phone: "",
-  })
+  });
   const [imgUpload, setImgUpload] = useState(null);
-  const [srcUrl , setSrcUrl] = useState(require("./images.jpeg"))
+  const [srcUrl, setSrcUrl] = useState(require("./images.jpeg"));
   // console.log(imgUpload);
 
   const uploadImg = () => {
@@ -25,14 +24,12 @@ function SignUp(setUserLogin) {
     uploadBytes(imageRef, imgUpload);
   };
 
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  function handleSubmit(e){
-    e.preventDefault()
-
-    if(imgUpload == null){
-      alert("Please select a profile image")
+    if (imgUpload == null) {
+      alert("Please select a profile image");
     } else {
-
       fetch("https://emkayint23.herokuapp.com/users", {
         method: "POST",
         headers: {
@@ -43,6 +40,7 @@ function SignUp(setUserLogin) {
       })
         .then((res) => res.json())
         .then((res) => {
+          console.log(res);
           if (res.response === "User Exist") {
             alert("User Exists Do you want to login?");
           } else {
@@ -54,6 +52,7 @@ function SignUp(setUserLogin) {
               phone: "",
               image: "",
             });
+            setUserLogin(res);
             setImgUpload(null);
           }
         });
@@ -67,18 +66,21 @@ function SignUp(setUserLogin) {
           <div className="col-sm-6">
             <div className="container-main d-flex justify-content-center align-items-center pt-5 mt-5">
               <div className="profile-choice">
-                <img src={srcUrl}/>
+                <img src={srcUrl} />
               </div>
             </div>
 
-            <input type="file" className="file" onChange = {(e) => {
-              setImgUpload(e.target.files)
-              setSrcUrl(URL.createObjectURL(e.target.files[0]))
-            }}/>
+            <input
+              type="file"
+              className="file"
+              onChange={(e) => {
+                setImgUpload(e.target.files);
+                setSrcUrl(URL.createObjectURL(e.target.files[0]));
+              }}
+            />
           </div>
 
           <div className="col-sm-6">
-        
             <h4>SignUp</h4>
             <span className="span1">Made for developers by developers</span>
             <input
@@ -125,7 +127,7 @@ function SignUp(setUserLogin) {
                 })
               }
             />
-           
+
             <br />
             <br />
             <input
@@ -148,7 +150,7 @@ function SignUp(setUserLogin) {
             <span> Agree To Terms And Policies?</span>
             <br />
             <br />
-            <input type="submit" value = "SignUp" className="submit" />
+            <input type="submit" value="SignUp" className="submit" />
             <div className="text-center">
               <p>
                 Already have an account? <NavLink to="/">SignIn</NavLink>

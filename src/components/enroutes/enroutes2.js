@@ -5,8 +5,8 @@ import SignUp from "../signup/SignUp";
 function Enroutes2({ setUserLogin }){
   return (
     <Routes>
-      <Route path="/" element={<Login setUserLogin={setUserLogin} />} />
-      <Route path="/signup" element={<SignUp setUserLogin={setUserLogin} />} />
+      <Route path="/" element={<Login setUserLogin = {setUserLogin} />} />
+      <Route path="/signup" element={<SignUp setUserLogin = {setUserLogin} />} />
     </Routes>
   );
 }
