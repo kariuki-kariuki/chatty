@@ -66,7 +66,7 @@ function SignUp({setUserLogin}) {
           <div className="col-sm-6">
             <div className="container-main d-flex justify-content-center align-items-center pt-5 mt-5">
               <div className="profile-choice">
-                <img src={srcUrl} />
+                <img src={srcUrl} alt=""/>
               </div>
             </div>
 

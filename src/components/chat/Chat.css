@@ -1,6 +1,6 @@
 .user-chats{
   background-color: #000;
-  height: 90vh;
+  height: 100vh;
   overflow: auto;
   position: relative;
   padding-bottom: 60px;

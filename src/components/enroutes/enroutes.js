@@ -4,7 +4,7 @@ import Nav from "../navigation/Nav"
 import Funds from "../funds/Funds"
 import Shop from "../shop/Shop"
 
-function Enroutes({userLogin}) {
+function Enroutes({userLogin, setUserLogin}) {
   return (
     <div className="row">
       <div className="col-sm-2 p-0">
@@ -12,7 +12,7 @@ function Enroutes({userLogin}) {
       </div>
       <div className="col-sm-10 p-0">
         <Routes>
-          <Route path="/" element={<Chat userLogin={userLogin} />} />
+          <Route path="/" element={<Chat userLogin={userLogin} setUserLogin = { setUserLogin }/>} />
           <Route path="/funds" element={<Funds userLogin={userLogin} />} />
           <Route path="/shop" element={<Shop />} />
         </Routes>

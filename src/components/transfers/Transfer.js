@@ -6,7 +6,6 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
 
   function handleSubmit(e){
     e.preventDefault()
-    console.log(`${userLogin.phone, activeChat.phones}`)
     if(amount !== "" && activeChat.phones !== ""){
       fetch("https://emkayint23.herokuapp.com/messages/new", {
         method: "POST",
@@ -17,7 +16,7 @@ function Transfer({userLogin, activeChat, setShow, show, setMessages}){
         body: JSON.stringify({
           text_massage: amount,
           sender: userLogin.phone,
-          receiver: activeChat.phones,
+          receiver: activeChat.phone,
           type: "transaction",
         })
         

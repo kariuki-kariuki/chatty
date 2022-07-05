@@ -4,11 +4,13 @@ import Enroutes2 from "./components/enroutes/enroutes2";
 
 function App(){
   const [userLogin, setUserLogin] = useState({
-    name: "Wendy", 
-    phone: 742
+    name: null, 
+    phone: null,
+    image: null
   })
 
   const [path, setPath] = useState("")
+
 
   useEffect(() => {
     console.log(userLogin)
@@ -17,6 +19,7 @@ function App(){
     } else {
       setPath(<Enroutes2 setUserLogin = { setUserLogin }/>)
     }
+    
   }, [userLogin, setUserLogin])
   return (
     <div className="container-main bg-dark hero">

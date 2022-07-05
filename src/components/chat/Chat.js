@@ -2,22 +2,23 @@ import "./Chat.css"
 import Card from "../card/Card";
 import SentText from "../textbox/SentText";
 import RecvText from "../textbox/RecvText";
-import Profile from "../profile/Profile";
+// import Profile from "../profile/Profile";
 import ChatBox from "../chatbox/chatbox";
 import Transfer from "../transfers/Transfer";
 import { useEffect, useState } from "react";
 import Contact from "../contact/contact";
 
+
 function Chat({userLogin}){
   const [activeChat, setActiveChat] = useState({
-    phones: "",
-    names: ""
+    phone: "",
+    name: "", 
+    image : ""
   });
   const [contacts, setContacts] = useState([])
   const [msg, setMessages] = useState([])
   const [show, setShow] = useState('none')
   const [contacted, setContactShow] = useState(false)
-  // console.log(location)
 
 
   useEffect(() => {
@@ -28,13 +29,13 @@ function Chat({userLogin}){
       },
     })
       .then((res) => res.json())
-      .then((res) => setContacts(res));
+      .then((res) => {setContacts(res)});
       
       let div = document.getElementById('mychats')
       // document.getElementById("mychats").scrollTop = location;
       div.scrollTop = div.scrollHeight
 
-  }, [userLogin, setContacts, msg])
+  }, [userLogin, setContacts, msg,])
 
  
 
@@ -71,7 +72,6 @@ function Chat({userLogin}){
   })
   
   function handleContact(){
-    // console.log(contacted)
     setContactShow(!contacted)
   }
 
@@ -79,9 +79,10 @@ function Chat({userLogin}){
     if(msgs.sender === userLogin.phone && msgs.typ === "text"){
       return (
         <SentText
-          name={userLogin.name}
+          name={userLogin.username}
           message={msgs.text_massage}
           key={msgs.id}
+          phone = { userLogin.phone }
           date = {msgs.created_at}
         />
       );
@@ -89,24 +90,29 @@ function Chat({userLogin}){
       return (
         <RecvText
           name={activeChat.name}
+          phone = {activeChat.phone}
           message={msgs.text_massage}
           date={msgs.created_at}
           key={msgs.id}
         />
       );
     } else if(msgs.sender !== userLogin.phone && msgs.typ === "transaction"){
-      return (<RecvText
-        name={activeChat.names}
-        message={`Receved Ksh: ${msgs.text_massage} from ${activeChat.names}`}
-        key={msgs.id}
-        bc = "yellow"
-      />)
+      return (
+        <RecvText
+          name={activeChat.name}
+          phone={activeChat.phone}
+          message={`Receved Ksh: ${msgs.text_massage} from ${activeChat.name}`}
+          key={msgs.id}
+          bc="yellow"
+        />
+      );
     } else if (msgs.sender === userLogin.phone && msgs.typ === "transaction") {
       return (
         <SentText
-          name={activeChat.names}
-          message={`Sent Ksh: ${msgs.text_massage} to ${activeChat.names}`}
+          name={activeChat.name}
+          message={`Sent Ksh: ${msgs.text_massage} to ${activeChat.name}`}
           key={msgs.id}
+          phone={userLogin.phone}
           date={msgs.created_at}
           bc="yellow"
         />

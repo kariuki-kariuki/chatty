@@ -1,6 +1,6 @@
 import "./Login.css"
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import useLogin from "../../hooks/useLogin";
 // import axios from 'axios'
 
@@ -21,7 +21,7 @@ function Login({ setUserLogin }){
       .then((res) => {
         console.log(res);
         if (res.data === "Error login") {
-          alert("Worng userName or password");
+          alert("Wrong userName or password");
         } else {
           alert("Welcome");
           setUserLogin(res);

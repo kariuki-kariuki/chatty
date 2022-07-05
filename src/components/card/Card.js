@@ -6,7 +6,7 @@ import {
 } from "firebase/storage";
 
 import { storage } from "../../firebase"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function Card(props){
@@ -18,8 +18,8 @@ function Card(props){
   function handleClick(){
     setActiveChat({
       ...activeChat,
-      phones: phone,
-      names: name,
+      phone: phone,
+      name: name,
     });
     //chatty-apis.herokuapp.com/contacts/742
     fetch(
@@ -37,22 +37,33 @@ function Card(props){
         console.log(document.getElementById("mychats").scrollHeight);
       });
 
-      getDownloadURL(imageListRefOne)
-        .then((url) => setImageToDisplay(<img src={url} alt="image not found" />))
-        .catch((error) => {
-          switch (error.code) {
-            case "storage/object-not-found":
-              break;
-            case "storage/unauthorized":
-              break;
-            case "storage/canceled":
-              break;
-            case "storage/unknown":
-              break;
-          }
-        });
+      
     // console.log(document.getElementById("mychats").scrollHeight);
   }
+  useEffect(() => {
+    getDownloadURL(imageListRefOne)
+      .then((url) => {
+        setImageToDisplay(<img src={url} alt="not found" />);
+        setActiveChat({
+          ...activeChat,
+          image: <img src={url} alt="not found" />,
+        });
+      })
+      .catch((error) => {
+        switch (error.code) {
+          case "storage/object-not-found":
+            break;
+          case "storage/unauthorized":
+            break;
+          case "storage/canceled":
+            break;
+          case "storage/unknown":
+            break;
+          default:
+        }
+      });
+  }, [])
+  
   return (
     <div className="myCard" onClick={handleClick}>
       {imageToDisaplay}

@@ -2,11 +2,10 @@ import { useState } from "react"
 import "./chatbox.css"
 
 function ChatBox({ userLogin, activeChat , setShow, setMessages }){
-  let recv = activeChat.phone 
   const [message, setMessage] = useState({
     text_massage : "",
     sender: userLogin.phone,
-    receiver: activeChat.phones,
+    receiver: activeChat.phone,
     type: "text"
   })
   
@@ -21,12 +20,12 @@ function ChatBox({ userLogin, activeChat , setShow, setMessages }){
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
+          "Accept" : "application/json",
         },
         body: JSON.stringify({
           text_massage: message.text_massage,
           sender: message.sender,
-          receiver: activeChat.phones,
+          receiver: activeChat.phone,
           type: "text",
         }),
       })

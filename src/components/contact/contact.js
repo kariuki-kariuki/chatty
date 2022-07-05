@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./contact.css"
 
 function Contact({ setContactShow, contact }){
-  console.log(contact)
   const [contactCard, setContactCard] = useState({
     name: "",
     phone: ""
