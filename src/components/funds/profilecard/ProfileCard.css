@@ -1,0 +1,37 @@
+.profilecard{
+  width: 71%;
+  height: 57vh;
+  margin: 0 auto;
+  padding: 10px 10px 20px 20px;
+  background-color: rgba(77, 74, 74, 0.95);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.profilecard img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.pf-name{
+  margin-left: 20%;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.name{
+  width: 25%;
+  display: inline-block;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-image{
+  width: fit-content;
+  margin: 0 auto;
+}
+.holder{
+  margin: 0;
+}
