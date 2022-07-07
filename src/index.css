@@ -13,4 +13,5 @@
 .hero{
   height: 100%;
   overflow: hidden;
+  background-color: rgb(9, 15, 25);
 }
