@@ -4,8 +4,8 @@ import Enroutes2 from "./components/enroutes/enroutes2";
 
 function App(){
   const [userLogin, setUserLogin] = useState({
-    name: null, 
-    phone: null,
+    name: 'Wendy', 
+    phone: 742,
     image: null
   })
 

@@ -1,4 +1,9 @@
 .funds{
-  overflow: scroll;
   background-color: #e1e0f0;
+  background-image: url("./wallpaperflare.com_wallpaper.jpg");
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  padding: 20px 0px 0px 20px;
+  width: 100%;
 }
