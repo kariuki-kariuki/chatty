@@ -22,14 +22,19 @@ function Chat({userLogin}){
 
 
   useEffect(() => {
-    fetch(`https://emkayint23.herokuapp.com/contacts/${userLogin.phone}`, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
+    fetch(
+      `https://protected-fortress-94035.herokuapp.com/contacts/${userLogin.phone}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    )
       .then((res) => res.json())
-      .then((res) => {setContacts(res)});
+      .then((res) => {
+        setContacts(res);
+      });
       
       let div = document.getElementById('mychats')
       // document.getElementById("mychats").scrollTop = location;

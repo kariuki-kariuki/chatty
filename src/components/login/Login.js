@@ -15,7 +15,7 @@ function Login({ setUserLogin }){
     e.preventDefault()
     setLoading(true)
     fetch(
-      `https://emkayint23.herokuapp.com/login/${loginData.phone}/${loginData.password}`
+      `https://protected-fortress-94035.herokuapp.com/login/${loginData.phone}/${loginData.password}`
     )
       .then((res) => res.json())
       .then((res) => {

@@ -30,7 +30,7 @@ function SignUp({setUserLogin}) {
     if (imgUpload == null) {
       alert("Please select a profile image");
     } else {
-      fetch("https://emkayint23.herokuapp.com/users", {
+      fetch("https://protected-fortress-94035.herokuapp.com/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

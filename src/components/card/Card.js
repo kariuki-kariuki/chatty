@@ -23,7 +23,7 @@ function Card(props){
     });
     //chatty-apis.herokuapp.com/contacts/742
     fetch(
-      `https://emkayint23.herokuapp.com/messages/${userLogin.phone}/${phone}`,
+      `https://protected-fortress-94035.herokuapp.com/messages/${userLogin.phone}/${phone}`,
       {
         headers: {
           "Content-Type": "application/json",
