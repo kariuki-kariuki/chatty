@@ -2,7 +2,7 @@
 
 .bankcard{
   width: 71%;
-  height: 36vh;
+  height: fit-content;
   border: 1px solid rgb(255, 255, 255);
   color: whitesmoke;
   border-radius: 20px;
@@ -35,7 +35,7 @@
 .chattybank span{
   font-size: 1.5rem;
   letter-spacing: 6px;
-  padding-top: 30px;
+  padding-top: 3vh;
 }
 
 .qrcode{
@@ -45,7 +45,7 @@
   height: fit-content;
   padding: 5px;
   margin-left: 20%;
-  border: 5px solid wheat;
+  border: 2px solid white;
 
 }
 
@@ -57,5 +57,5 @@
 
 .valid span{
   font-size: 1rem;
-  padding-left: 30px;
+  padding-left: 10px;
 }

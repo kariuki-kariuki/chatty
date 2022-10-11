@@ -1,6 +1,6 @@
 .profilecard{
   width: 71%;
-  height: 57vh;
+  height: fit-content;
   margin: 0 auto;
   background: rgba(45, 53, 122, 0.7);
   padding: 10px 10px 20px 20px;

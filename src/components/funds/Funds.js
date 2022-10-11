@@ -10,9 +10,13 @@ function Funds(){
   return (
     <div className="funds">
       <div className="row">
-        <div className="col-sm-6">
-          <ProfileCard url = { url }/>
-          <Bankcard  />
+        <div className="col-sm-6 col-lg-6 h-100">
+          <ProfileCard url={url} />
+        </div>
+        <div className="col-sm-6 col-lg-6 h-100">
+          <div className="container-main  align-content-center justify-content-center">
+            <Bankcard />
+          </div>
         </div>
       </div>
     </div>
