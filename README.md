@@ -41,7 +41,6 @@ Invite others to join
 [MIT Licence](LICENCE)
 
 ## Credits
-* TM Peter 
 
 ## Links
 
@@ -49,5 +48,5 @@ Invite others to join
 * [sinatra-api](https://github.com/Emkayint/sinatra-api)
 
 ## Contact Me
- * business.kariukimartin@gmail.com
+ * mkmartinoes@gmail.com
  * +254 742075647
