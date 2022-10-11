@@ -14,7 +14,7 @@ function Enroutes({userLogin, setUserLogin}) {
         <Routes>
           <Route path="/" element={<Chat userLogin={userLogin} setUserLogin = { setUserLogin }/>} />
           <Route path="/funds" element={<Funds userLogin={userLogin} />} />
-          <Route path="/shop" element={<Shop />} />
+          {/* <Route path="/shop" element={<Shop />} /> */}
         </Routes>
       </div>
     </div>

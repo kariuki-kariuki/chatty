@@ -31,7 +31,7 @@ function Nav(){
         </div>
       </NavLink>
 
-      <NavLink to="/shop">
+      {/* <NavLink to="/shop">
         <div className="nav-3">
           <span
             className="iconify"
@@ -41,7 +41,7 @@ function Nav(){
             data-height="48"
           ></span>
         </div>
-      </NavLink>
+      </NavLink> */}
     </nav>
   );
 }
